@@ -54,7 +54,7 @@ At this point, we have established trust between the Production and Development 
 <img width="662" alt="a25" src="https://user-images.githubusercontent.com/115148205/196093760-020f3c8b-308f-4d7d-9fda-8c623496c236.PNG">
 
 # Step 1.11
-<img width="686" alt="a26" src="https://user-images.githubusercontent.com/115148205/196094174-2590e66f-c0fc-41ac-853e-670e2a644474.PNG">
+
 
 
 
