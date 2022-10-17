@@ -94,6 +94,49 @@ The Deny effect explicitly denies the Testers group access to the S3ProductionAc
 
 <img width="441" alt="a30" src="https://user-images.githubusercontent.com/115148205/196099664-e91c0a8c-9de4-4ca4-a2f4-4a81a8eceb68.PNG">
 
+# Step 3: Test access by switching roles (Console)
+We now have a role that grants access to a resource in the Production account. We also have one user group in the Development account with users allowed to use that role. This step discusses how to test switching to that role from the AWS Management Console.
+
+Switching roles using the AWS Management Console only works with accounts that do not require an ExternalId. For example, assume that you grant access to your account to a third party and require an ExternalId in a Condition element in your permissions policy. In that case, the third party can access your account only by using the AWS API or a command line tool. The third party cannot use the console because it cannot supply a value for ExternalId. More informaton at How to use an external ID when granting access to your AWS resources to a third party,
+
+# To assume a role
+1. Logon to AWS console as Navneet (Developer) in the Development user group.
+2. Select Navneet on top right corner (the Identity menu) on the navigation bar, and then choose Switch Role.
+3. Next, in order to access the role, Navneet must type the ProdAccountID (999999999999), the role name (S3ProductionAccessRole), Display name as S3-Production and then chooses Switch Role.
+4. Navneet can now use the Amazon S3 console to work with the Amazon S3 bucket, or any other resource to which the S3ProductionAccessRole has permissions.
+5. When done, Navneet can return to his original permissions. To do that, he chooses S3-Production role display name on the navigation bar and then chooses Switch Back.
+6. The next time that Navneet wants to switch roles and chooses the Identity menu in the navigation bar, he sees the S3-Production entry still there from last time. He can simply choose that entry to switch roles immediately without reentering the account ID and role name.
+7. Repeat the above steps with Abhishek (Tester) and he will not be able to assume the role S3ProductionAccessRole,
+
+<img width="330" alt="a32" src="https://user-images.githubusercontent.com/115148205/196108733-8980c4a0-7f18-48e1-9cf3-712b233d220c.PNG">
+<img width="661" alt="a33" src="https://user-images.githubusercontent.com/115148205/196108882-21dcbc2d-80aa-4bca-9fa3-d00545eb8ee0.PNG">
+
+<img width="663" alt="a34" src="https://user-images.githubusercontent.com/115148205/196109059-b6582e6b-7e70-4f7e-a356-db1b4889f953.PNG">
+<img width="268" alt="a35" src="https://user-images.githubusercontent.com/115148205/196109611-d088f535-4ca0-417f-a681-d7cc50afb923.PNG">
+
+# Revoke an assumed role
+1. Navigate to S3ProductionAccessRole under IAM > Roles in the Production Account.
+2. Click on Revoke Sessions > Click on Revoke active sessions > Select I acknowledge that I am revoking all active session for this role > Click Revoke active sessions.
+3. This will add an inline policy with a policy name as AWSRevokeOlderSessions with a condition of DateLessThan the aws:TokenIssueTime. All existing sessions will be revoked.
+
+<img width="644" alt="a36" src="https://user-images.githubusercontent.com/115148205/196110028-3d418785-84d3-4659-bcc3-4223970bbdb7.PNG">
+<img width="566" alt="a37" src="https://user-images.githubusercontent.com/115148205/196110223-bed4c4cc-cf69-4816-8c6a-385649b3e863.PNG">
+<img width="661" alt="a38" src="https://user-images.githubusercontent.com/115148205/196110410-3d0aff59-e35c-47f5-9b84-7fd8bd6b5e3e.PNG">
+<img width="660" alt="a39" src="https://user-images.githubusercontent.com/115148205/196110545-945702c9-1172-45b8-b60e-7bd5bfed3f90.PNG">
+
+# Clean Up
+1. Empty the bucket.
+2. Delete the bucket.
+3. Delete S3ProductionAccessPolicy and in the Production Account.
+4. Delete Navneet and Abhishek users.
+5. Delete Developers and Testers User groups.
+
+# Summary
+
+1. In this demo we have learned how to delegate access across AWS accounts using IAM roles.
+2. You don't have to create individual IAM users in each account.
+3. Users don't have to sign out of one account and sign into another in order to access resources in different AWS accounts.
+4. A user in one account can switch to a role in the same or a different account. While using the role, the user can perform only the actions and access only the resources permitted by the role; their original user permissions are suspended. When the user exits the role, the original user permissions are restored.
 
 
 
