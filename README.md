@@ -75,6 +75,26 @@ The Allow effect explicitly allows the Developers group access to the S3Producti
 8. Choose Review policy.
 9. Type a Policy name such as allow-assume-S3-role-in-production.
 10. Choose Create policy.
+![image](https://user-images.githubusercontent.com/115148205/196098918-e18f6d27-e69d-4855-a96c-c5c89d96cfab.png)
+
+# To modify the testers user group to deny permission to assume the S3ProductionAccessRole role
+1. Choose User groups, and then choose Testers.
+2. Choose the Permissions tab, choose Add permissions, and then choose Create inline policy.
+3. Choose the JSON tab.
+4. Add the following policy statement to allow the AssumeRole action on the S3ProductionAccessRole in the Production account. Be sure that you change [ProdAccountID] in the Resource element to the actual AWS account ID of the Production account.
+
+# Policy from the documentation
+<img width="536" alt="a29" src="https://user-images.githubusercontent.com/115148205/196099331-e1aa358d-58d7-427b-aed6-070e7cc552d6.PNG">
+
+The Deny effect explicitly denies the Testers group access to the S3ProductionAccessRole role in the Production account. Any tester who tries to access the role receives an access denied message.
+
+5. Choose Review policy.
+6. Type a Policy name such as deny-assume-S3-role-in-production.
+7. Choose Create policy.
+
+<img width="441" alt="a30" src="https://user-images.githubusercontent.com/115148205/196099664-e91c0a8c-9de4-4ca4-a2f4-4a81a8eceb68.PNG">
+
+
 
 
 
