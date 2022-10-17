@@ -38,4 +38,25 @@ The ListBucket permission allows users to view objects in the productionapp buck
 11. Click on Create role and name it as S3ProductionAccessRole.
 12. Copy the ARN of S3ProductionAccessRole role by navigating to IAM > Roles > Search for S3ProductionAccessRole > Click on it > Copy the ARN.
 
+At this point, we have established trust between the Production and Development accounts. We did this by creating a role in the Production account that identifies the Development account as a trusted principal. We also defined what the users who switch to the S3ProductionAccessRole can do.
+
+<img width="371" alt="a22" src="https://user-images.githubusercontent.com/115148205/196093171-a284c2a8-f514-4599-83dd-2eccbcc59fc9.PNG">
+
+# Step 1.3
+<img width="662" alt="s23" src="https://user-images.githubusercontent.com/115148205/196093351-7f3ddad0-4fd9-43c0-b699-a5d87bcdc099.PNG">
+
+<img width="662" alt="a23" src="https://user-images.githubusercontent.com/115148205/196093482-69f92b4a-3b8b-4b63-9aaa-41a801b9701b.PNG">
+
+# Step 1.6
+<img width="663" alt="a24" src="https://user-images.githubusercontent.com/115148205/196093597-bc485504-8852-427c-9494-a27ea69e984f.PNG">
+
+# Step 1.10
+<img width="662" alt="a25" src="https://user-images.githubusercontent.com/115148205/196093760-020f3c8b-308f-4d7d-9fda-8c623496c236.PNG">
+
+# Step 1.11
+<img width="662" alt="a26" src="https://user-images.githubusercontent.com/115148205/196093901-812c2821-0dde-456c-a1f2-2905c10fa404.PNG">
+
+
+
+
     
