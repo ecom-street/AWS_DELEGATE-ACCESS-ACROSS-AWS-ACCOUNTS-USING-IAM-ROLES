@@ -54,6 +54,32 @@ At this point, we have established trust between the Production and Development 
 <img width="662" alt="a25" src="https://user-images.githubusercontent.com/115148205/196093760-020f3c8b-308f-4d7d-9fda-8c623496c236.PNG">
 
 # Step 1.11
+<img width="686" alt="a26" src="https://user-images.githubusercontent.com/115148205/196096137-b490f60e-4c2d-44a0-8dbd-79e58d800d13.PNG">
+
+# Step 2: Grant access to the role
+# To modify the Developers user group to allow them to switch to the S3ProductionAccessRole role.
+
+1. Create two users, Navneet and Abhishek, and two user groups, Developers and Testers.
+2. Add Navneet to Developers and Abhishek to Testers user groups.
+3. Sign in as an administrator in the Development account, and open the IAM console.
+4. Choose User groups, and then choose Developers.
+5. Choose the Permissions tab, choose Add permissions, and then choose Create inline policy.
+6. Choose the JSON tab.
+7. Add the following policy statement to allow the AssumeRole action on the S3ProductionAccessRole in the Production account. Be sure that you change [ProdAccountID] in the Resource element to the actual AWS account ID of the Production account.
+
+# Policy from the documentation
+<img width="531" alt="a27" src="https://user-images.githubusercontent.com/115148205/196096851-94c8240f-1af5-45ef-8928-175208c52329.PNG">
+
+The Allow effect explicitly allows the Developers group access to the S3ProductionAccessRole role in the Production account. Any developer who tries to access the role succeeds.
+
+8. Choose Review policy.
+9. Type a Policy name such as allow-assume-S3-role-in-production.
+10. Choose Create policy.
+
+
+
+
+
 
 
 
